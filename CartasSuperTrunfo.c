@@ -4,6 +4,16 @@
 // Tema 1 - Cadastro das cartas
 // Objetivo: No nível novato você deve criar as cartas representando as cidades utilizando scanf para entrada de dados e printf para exibir as informações.
 
+// Funções Matemáticas:
+
+float calcularDensidadePopulacional(int populacao, float area) {
+  return (float) populacao / area;
+}
+
+float calcularPIBPerCapita(float pib, int populacao) {
+  return (float) (pib * 1000000000) / populacao;
+}
+
 int main() {
   // Área para definição das variáveis para armazenar as propriedades das cidades
   char firstCard[4], secondCard[4], firstState, secondState, firstCity[50], secondCity[50];
@@ -64,7 +74,7 @@ int main() {
   printf("SEGUNDA CARTA - A quantidade de pontos turísticos na cidade: \n");
   scanf(" %d", &secondTuristPoints);
 
-  printf("Parabéns! Suas cartas foram criadas com sucesso!\n Seguem as informações de cada carta:\n Carta 1:\n Estado: %c\n Código: %s\n Nome da Cidade: %s População: %d\n Área: %.2f km²\n PIB: %.2f bilhões de reais\n Númnero de Pontos Turísticos: %d\n\n\n Carta 2:\n Estado: %c\n Código: %s\n Nome da Cidade: %s População: %d\n Área: %.2f km²\n PIB: %.2f bilhões de reais\n Númnero de Pontos Turísticos: %d\n", firstState, firstCard, firstCity, firstPopulation, firstArea, firstPIB, firstTuristPoints, secondState, secondCard, secondCity, secondPopulation, secondArea, secondPIB, secondTuristPoints);
+  printf("Parabéns! Suas cartas foram criadas com sucesso!\n Seguem as informações de cada carta:\n Carta 1:\n Estado: %c\n Código: %s\n Nome da Cidade: %s População: %d\n Área: %.2f km²\n PIB: %.2f bilhões de reais\n Númnero de Pontos Turísticos: %d\n Densidade Populacional: %.2f hab/km²\n PIB per capta: %.2f reais\n\n\n Carta 2:\n Estado: %c\n Código: %s\n Nome da Cidade: %s População: %d\n Área: %.2f km²\n PIB: %.2f bilhões de reais\n Númnero de Pontos Turísticos: %d\n Densidade Populacional: %.2f hab/km²\n PIB per capta: %.2f reais\n", firstState, firstCard, firstCity, firstPopulation, firstArea, firstPIB, firstTuristPoints, calcularDensidadePopulacional(firstPopulation, firstArea), calcularPIBPerCapita(firstPIB, firstPopulation), secondState, secondCard, secondCity, secondPopulation, secondArea, secondPIB, secondTuristPoints, calcularDensidadePopulacional(secondPopulation, secondArea), calcularPIBPerCapita(secondPIB, secondPopulation));
   // Área para exibição dos dados da cidade
 
 return 0;
